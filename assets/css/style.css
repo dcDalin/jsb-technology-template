@@ -26,6 +26,8 @@ Author URI: http://xpeedstudio.com
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+
+   /* New Red Color: #e74c3c */
 html,
 body {
     font-size: 14px;
@@ -95,15 +97,15 @@ section { overflow: hidden; }
 .roomy-40 {
     padding-top: 40px;
     padding-bottom: 40px;
-}
+} 
 
 
 /*text color*/
 
 .text-muted{}
-.text-primary{color: #00a885 !important;;}
+.text-primary{color: #e74c3c !important;;}
 .text-finence{color:#13A0B2 !important;;}
-.text-mega{color:#00a885 !important;;}
+.text-mega{color:#e74c3c !important;;}
 .text-white{color:#fff !important;;}
 .text-black{color:#000 !important;}
 .text-warning{}
@@ -116,7 +118,7 @@ section { overflow: hidden; }
 .lightbg {
     background-color: #f2f2f2;
 }
-.bg-primary{background-color: #00a885;}
+.bg-primary{background-color: #e74c3c;}
 .bg-finence{background-color:#13A0B2;}
 .bg-mega{background-color:#1b1b1b;}
 .bg-grey{background-color: #f5f5f5;}
@@ -255,7 +257,7 @@ h3 span,
 h4 span,
 h5 span,
 p span{
-    color:#00a885;
+    color:#e74c3c;
 }
 
 p {
@@ -350,19 +352,19 @@ Separator
     width:85px;
     height:2px;
     margin:20px 0px;
-    background: #00a885;
+    background: #e74c3c;
 }
 .separator_auto{
     width:85px;
     height:2px;
     margin:20px auto;
-    background: #00a885;
+    background: #e74c3c;
 }
 .separator_small{
     width:30px;
     height:2px;
     margin:20px 0px;
-    background: #00a885;
+    background: #e74c3c;
 }
 
 /*
@@ -378,15 +380,15 @@ Button
 }
 .btn-primary{
     color: #fff;
-    background-color: #00a885;
+    background-color: #e74c3c;
     border:1px solid;
-    border-color: #00a885;
+    border-color: #e74c3c;
 
 }
 .btn-primary:hover{
     background-color: #eee;
     border-color: #eee;
-    color:#00a885;
+    color:#e74c3c;
 }
 
 .btn-default{
@@ -397,8 +399,8 @@ Button
 }
 .btn-default:hover{
     color: #fff;
-    background-color: #00a885;
-    border-color: #00a885;
+    background-color: #e74c3c;
+    border-color: #e74c3c;
 }
 
 
@@ -690,7 +692,7 @@ textarea::-ms-input-placeholder{
 
 /*Preloader*/
 #loading{
-    background-color: #00a885;
+    background-color: #e74c3c;
     height: 100%;
     width: 100%;
     position: absolute;
@@ -850,7 +852,7 @@ Nav Menu style
 }
 .navbar-callus li a i{
     font-size:13px;
-    color:#1abc9c;
+    color: #e74c3c;
     margin-right: 5px;
 }
 .navbar-socail li a{
@@ -914,7 +916,7 @@ Home Section style
 }
 .main_home .slick-dots li.slick-active button:before{
     opacity: 1;
-    background-color: #00a885;
+    background-color: #e74c3c;
 }
 .main_home .slick-dots{
     bottom: -200px;
@@ -955,7 +957,7 @@ Featured section style
 }
 .features_item .f_item_icon i{
     font-size:4rem;
-    color:#00a885;
+    color:#e74c3c;
 }
 .features_item .f_item_text{
     display: inline-block;
@@ -1088,7 +1090,7 @@ work Section style
     top:30%;
 }
 .main_product .carousel-control:hover{
-    background-color: #00a885;
+    background-color: #e74c3c;
     color:#fff;
 }
 .main_product .carousel-control.left{
@@ -1159,7 +1161,7 @@ work Section style
 }
 .test_item:hover .item_img i{
     color:#fff;
-    background-color: #00a885;
+    background-color: #e74c3c;
 }
 
 .main_test .item_img{
@@ -1210,7 +1212,7 @@ work Section style
 
 .action_btn .btn-default:hover{
     background-color: #fff;
-    color:#00a885;
+    color:#e74c3c;
 }
 .action-lage{
     position: relative;
@@ -1224,7 +1226,7 @@ work Section style
     height: 0;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
-    border-top: 20px solid #00a885;
+    border-top: 20px solid #e74c3c;
     left:50%;
     top:0%;
     z-index: 3;
@@ -1316,8 +1318,8 @@ work Section style
 .widget_newsletter .btn{
     width: 20%;
     padding: 0.65rem 1.2rem;
-    background-color: #00a885;
-    border-color:#00a885;
+    background-color: #e74c3c;
+    border-color:#e74c3c;
     color:#fff;
     border-radius: 0;
     margin-left:-4px;
