@@ -1,12 +1,63 @@
 <?php 
 
-if(isset($_POST['sendemail'])){
+    // include phpmailer class
+	require_once 'mailer/class.phpmailer.php';
+	// creates object
+    $mail = new PHPMailer(true);
+    
 
-    $username = $_POST['username'];
-    $useremail = $_POST['useremail'];
-    $message = $_POST['message'];
-}
+    if(filter_has_var(INPUT_POST, 'btn-send')){
+        try {
+            $name = trim($_POST['name']);
+            $customerEmail = trim($_POST['email']);
+            $message = trim($_POST['message']);
+            
+            $email = 'oneilstephen95@gmail.com';
+            $subject = $name.','.$customerEmail;
+
+            $response = array();
+
+            try
+			{
+				$mail->IsSMTP(); 
+				$mail->isHTML(true);
+				$mail->SMTPDebug  = 0;                     
+                $mail->SMTPAuth   = true;                  
+                $mail->SMTPSecure = "";                 
+                $mail->Host       = "mail.jsb-technology.com";      
+                $mail->Port       = 25;             
+				$mail->AddAddress($email);
+				$mail->Username="info@jsb-technology.com";  
+                $mail->Password="password";            
+                $mail->SetFrom('info@jsb-technology.com','JSB-Technology');
+                $mail->AddReplyTo("info@jsb-technology.com","JSB-Technology");         
+				$mail->Subject    = $subject;
+				$mail->Body 	  = $message;
+				$mail->AltBody    = $message;
+					
+				if($mail->Send())
+				{
+                    $response['status'] = 'success'; // Email sent successfully
+                    $response['message'] = 'Success, we have received your email';					
+				}else{
+                    $response['status'] = 'error'; // Email not sent
+                    $response['message'] = 'Sorry, email not sent';
+                }
+                echo json_encode($response);
+                exit; 
+			}
+			catch(phpmailerException $ex)
+			{
+				$response['status'] = 'error'; // Email not sent
+                $response['message'] = 'Sorry, email not sent';
+			}
+        }catch(Exception $e){
+            echo $e;
+        }
+    }
+    /* End ajax login process */
 ?>
+
 
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -15,7 +66,7 @@ if(isset($_POST['sendemail'])){
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>JSB - Technologies</title>
+        <title>JSB - Technology</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/png" href="favicon.ico">
@@ -559,27 +610,27 @@ if(isset($_POST['sendemail'])){
                             <div class="col-md-9">
                                 <div class="widget_item widget_latest sm-m-top-50">
                                     <h5 class="text-white">Email Us</h5>
-                                    <form class="form-signin" method="post" id="login-form">
+                                    <form class="form-signin" method="post" id="send-email-form">
                                             <div id="errorDiv">
                                                 <!-- error will be shown here ! -->
                                             </div>
                                             <div class="form-group has-feedback">
                                                 <label for="name">Your Name</label>
-                                                <input type="text" class="form-control" placeholder="Your Name" required name="name" id="name">
-                                                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                                <input type="text" class="form-control" placeholder="Your Name" name="name" id="name">
+                                                <span class="glyphicon glyphicon-pencil form-control-feedback"></span>
                                                 <span class="help-block" id="error"></span>
                                             </div>
                                             <div class="form-group has-feedback">
                                                 <label for="email">Your Email</label>
-                                                <input type="email" class="form-control" placeholder="Your Email" name="email" id="email">
-                                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                                <input type="email" class="form-control" placeholder="Email" name="email" id="email">
+                                                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                                                 <span class="help-block" id="error"></span>
                                             </div>
                                             <div class="form-group has-feedback">
                                                 <label for="message">Your Message</label>
-                                                <textarea name="message" class="form-control" placeholder="Your Message">
-
-                                                </textarea>
+                                                <textarea class="form-control" rows="5" name="message" id="message"></textarea>
+                                                <span class="glyphicon glyphicon-pencil form-control-feedback"></span>
+                                                <span class="help-block" id="error"></span>
                                             </div>
                                             <div class="row">
                                                 
@@ -615,6 +666,7 @@ if(isset($_POST['sendemail'])){
         <!-- JS includes -->
 
         <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+        <script src="assets/js/jquery.validate.js"></script>
         <script src="assets/js/vendor/bootstrap.min.js"></script>
 
         <script src="assets/js/owl.carousel.min.js"></script>
@@ -629,6 +681,113 @@ if(isset($_POST['sendemail'])){
 
         <script src="assets/js/plugins.js"></script>
         <script src="assets/js/main.js"></script>
+
+        <script type="text/javascript">
+        // valid email pattern
+        var eregex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        $.validator.addMethod("validemail", function( value, element ) {
+            return this.optional( element ) || eregex.test( value );
+        });
+        
+        $('document').ready(function(){
+             /* validation */
+            $("#send-email-form").validate({
+                rules:{
+                    name:{
+                        required: true,
+                        minlength: 3
+                    },
+                    email:{
+                        required: true,
+                        validemail: true
+                    },
+                    message: {
+                        required: true,
+                        minlength: 20
+                    },
+                },
+                messages:{
+                    name:{
+                        required: "Please enter your name.",
+                        minlength: "Your name should be at least 3 characters"
+                    },
+                    email:{
+                        required: "Please enter your email address.",
+                        validemail: "Please enter a valid email address."
+                    }, 
+                    message: {
+                        required: "Please write a message.",
+                        minlength: "Message should be at least 20 characters long"
+                    }
+                },
+                errorPlacement : function(error, element) {
+                    $(element).closest('.form-group').find('.help-block').html(error.html());
+                },
+                highlight : function(element) {
+                    $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+                },
+                unhighlight: function(element, errorClass, validClass) {
+                    $(element).closest('.form-group').removeClass('has-error');
+                    $(element).closest('.form-group').find('.help-block').html('');
+                },
+                submitHandler: submitForm
+            });
+            /* validation */
+
+            /* reset password submit */
+            function submitForm(){
+                $.ajax({
+                    //url: 'index.ajax.php',
+                    type: 'POST',
+                    data: $('#send-email-form').serialize(),
+                    dataType: 'json',
+                    beforeSend: function() {
+                        $('#btn-send').html('<img src="ajax-loader.gif" style="margin: auto; width:10%;"> &nbsp; Sending...').prop('disabled', true);
+                        $('input[type=email],input[type=text],input[type=checkbox],#message').prop('disabled', true);
+                    },
+                })
+                .done(function(data){
+                    
+
+                    setTimeout(function(){
+                        if (data.status === 'success'){
+                            $('#errorDiv').slideDown('fast', function(){
+								$('#errorDiv').html('<div class="alert alert-info">'+data.message+'</div>');
+								$("#send-email-form").trigger('reset');
+								$('input[type=text],input[type=email],input[type=password]').prop('disabled', false);
+								$('#btn-signup').html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Send Mail').prop('disabled', false);
+							}).delay(3000).slideUp('fast');
+                            setTimeout(' window.location.href = "index.php"; ',3000);
+                        }else if (data.status === 'error'){
+                            $('#errorDiv').slideDown('fast', function(){
+                                $('#errorDiv').html('<div class="alert alert-danger">'+data.message+'</div>');
+                                $("#send-email-form").trigger('reset');
+                                $('input[type=text],input[type=email],input[type=password]').prop('disabled', false);
+                                $('#btn-signup').html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Send Mail').prop('disabled', false);
+                          }).delay(3000).slideUp('fast');
+                        }else if (data.status === 'unknown'){
+                            $('#errorDiv').slideDown('fast', function(){
+                                swal("Error!", data.message, "error");
+                                $("#send-email-form").trigger('reset');
+                                $('input[type=email],input[type=password],input[type=checkbox]').prop('disabled', false);
+                                $('#btn-send').html('Reset Password').prop('disabled', false);
+                            }).delay(3000).slideUp('fast');
+                            $("#back-to-login").slideDown('fast');
+                            $("#remember-me").slideDown('fast');
+                        }
+                    },3000);
+                })
+                .fail(function(){
+                    $("#send-email-form").trigger('reset');
+                    alert('An unknown error occoured, Please try again Later...');
+                });
+            }
+            /* reset password submit */
+        });
+
+    </script>
+
 
     </body>
 </html>
