@@ -1,3 +1,13 @@
+<?php 
+
+if(isset($_POST['sendemail'])){
+
+    $username = $_POST['username'];
+    $useremail = $_POST['useremail'];
+    $message = $_POST['message'];
+}
+?>
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -82,7 +92,7 @@
                                         <li><a href=""><i class="fa fa-facebook"></i></a></li>
                                         <li><a href=""><i class="fa fa-twitter"></i></a></li>
                                         <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a href=""><i class="Send us anfa fa-google-plus"></i></a></li>
                                         <li><a href=""><i class="fa fa-behance"></i></a></li>
                                         <li><a href=""><i class="fa fa-dribbble"></i></a></li>
                                     </ul>
@@ -118,8 +128,9 @@
                             <i class="fa fa-bars"></i>
                         </button>
                         <a class="navbar-brand" href="#brand">
-                            <img src="assets/images/logo.png" class="logo" alt="">
+                            <!-- <img src="assets/images/logo.png" class="logo" alt=""> -->
                             <!--<img src="assets/images/footer-logo.png" class="logo logo-scrolled" alt="">-->
+                            <h1 style="font-weight: bold; color: red;">JSB</h1>
                         </a>
 
                     </div>
@@ -132,8 +143,7 @@
                             <li><a href="#about">About</a></li>
                             <li><a href="#products-and-services">Products</a></li>
                             <li><a href="#services">Services</a></li>
-                            <li><a href="#work">Portfolio</a></li>
-                            <li><a href="#test">Blog</a></li>
+                            
                             <li><a href="#contact">Contact</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
@@ -159,7 +169,7 @@
                                         </div>
 
                                         <div class="home_btns m-top-40">
-                                            <a href="" class="btn btn-default m-top-20"><i class="fa fa-envelope" aria-hidden="true"></i>  Send us an email.</a>
+                                            <a href="#contact" class="btn btn-default m-top-20"><i class="fa fa-envelope" aria-hidden="true"></i>  Send us an email.</a>
                                         </div>
                                     </div><!-- End off slid item -->
                                     <div class="slid_item">
@@ -171,7 +181,7 @@
                                         </div>
 
                                         <div class="home_btns m-top-40">
-                                            <a href="" class="btn btn-default m-top-20"><i class="fa fa-envelope" aria-hidden="true"></i>  Send us an email.</a>
+                                            <a href="#contact" class="btn btn-default m-top-20"><i class="fa fa-envelope" aria-hidden="true"></i>  Send us an email.</a>
                                         </div>
                                     </div><!-- End off slid item -->
                                     
@@ -196,21 +206,17 @@
                                     <div class="business_items text-center">
                                         <div class="business_item">
                                             <div class="business_img">
-                                                <img src="assets/images/about-img1.jpg" alt="" />
+                                                <img src="assets/images/orig-logo.png" alt="" />
                                             </div>
                                         </div>
 
                                         <div class="business_item">
                                             <div class="business_img">
-                                                <img src="assets/images/about-img1.jpg" alt="" />
+                                                <img src="assets/images/orig-logo.png" alt="" />
                                             </div>
                                         </div>
 
-                                        <div class="business_item">
-                                            <div class="business_img">
-                                                <img src="assets/images/about-img1.jpg" alt="" />
-                                            </div>
-                                        </div>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -490,101 +496,6 @@
             </section>
             <!-- end of services section -->
 
-            <!--Test section-->
-            <section id="test" class="test bg-grey roomy-60 fix">
-                <div class="container">
-                    <div class="row">                        
-                        <div class="main_test fix">
-
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <div class="head_title text-center fix">
-                                    <h2 class="text-uppercase">What Client Say</h2>
-                                    <h5>Clean and Modern design is our best specialist</h5>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="test_item fix">
-                                    <div class="item_img">
-                                        <img class="img-circle" src="assets/images/test-img1.jpg" alt="" />
-                                        <i class="fa fa-quote-left"></i>
-                                    </div>
-
-                                    <div class="item_text">
-                                        <h5>Sarah Smith</h5>
-                                        <h6>envato.com</h6>
-
-                                        <p>Natus voluptatum enim quod necessitatibus quis
-                                            expedita harum provident eos obcaecati id culpa
-                                            corporis molestias.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="test_item fix sm-m-top-30">
-                                    <div class="item_img">
-                                        <img class="img-circle" src="assets/images/test-img2.jpg" alt="" />
-                                        <i class="fa fa-quote-left"></i>
-                                    </div>
-
-                                    <div class="item_text">
-                                        <h5>Sarah Smith</h5>
-                                        <h6>envato.com</h6>
-
-                                        <p>Natus voluptatum enim quod necessitatibus quis
-                                            expedita harum provident eos obcaecati id culpa
-                                            corporis molestias.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section><!-- End off test section -->
-
-
-            <!--Brand Section-->
-            <section id="brand" class="brand fix roomy-80">
-                <div class="container">
-                    <div class="row">
-                        <div class="main_brand text-center">
-                            <div class="col-md-2 col-sm-4 col-xs-6">
-                                <div class="brand_item sm-m-top-20">
-                                    <img src="assets/images/cbrand-img1.png" alt="" />
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-4 col-xs-6">
-                                <div class="brand_item sm-m-top-20">
-                                    <img src="assets/images/cbrand-img2.png" alt="" />
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-4 col-xs-6">
-                                <div class="brand_item sm-m-top-20">
-                                    <img src="assets/images/cbrand-img3.png" alt="" />
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-4 col-xs-6">
-                                <div class="brand_item sm-m-top-20">
-                                    <img src="assets/images/cbrand-img4.png" alt="" />
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-4 col-xs-6">
-                                <div class="brand_item sm-m-top-20">
-                                    <img src="assets/images/cbrand-img5.png" alt="" />
-                                </div>
-                            </div>
-                            <div class="col-md-2 col-sm-4 col-xs-6">
-                                <div class="brand_item sm-m-top-20">
-                                    <img src="assets/images/cbrand-img6.png" alt="" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section><!-- End off Brand section -->
-
-
             <!--Call to  action section-->
             <section id="action" class="action bg-primary roomy-40">
                 <div class="container">
@@ -592,12 +503,12 @@
                         <div class="maine_action">
                             <div class="col-md-8">
                                 <div class="action_item text-center">
-                                    <h2 class="text-white text-uppercase">Your Promotion Text Will Be Here</h2>
+                                    <h2 class="text-white text-uppercase">Contact Us Now</h2>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="action_btn text-left sm-text-center">
-                                    <a href="" class="btn btn-default">Purchase Now</a>
+                                    <a href="" class="btn btn-default"><i class="fa fa-phone"></i>&nbsp; +254 736 421 546</a>
                                 </div>
                             </div>
                         </div>
@@ -615,116 +526,83 @@
                         <div class="widget_area">
                             <div class="col-md-3">
                                 <div class="widget_item widget_about">
-                                    <h5 class="text-white">About Us</h5>
-                                    <p class="m-top-20">Lorem ipsum dolor sit amet consec tetur adipiscing elit 
-                                        nulla aliquet pretium nisi in cursus 
-                                        maecenas nec eleifen.</p>
+                                    <h5 class="text-white">Info</h5>
                                     <div class="widget_ab_item m-top-30">
                                         <div class="item_icon"><i class="fa fa-location-arrow"></i></div>
                                         <div class="widget_ab_item_text">
                                             <h6 class="text-white">Location</h6>
                                             <p>
-                                                123 suscipit ipsum nam auctor
-                                                mauris dui, ac sollicitudin mauris,
-                                                Bandung</p>
+                                                Moi Drive, Joakim Plaza 
+                                            </p>
+                                            <p>
+                                                Nairobi, Kenya        
+                                            </p>
                                         </div>
                                     </div>
                                     <div class="widget_ab_item m-top-30">
                                         <div class="item_icon"><i class="fa fa-phone"></i></div>
                                         <div class="widget_ab_item_text">
                                             <h6 class="text-white">Phone :</h6>
-                                            <p>+1 2345 6789</p>
+                                            <p>+254 736 421 546</p>
                                         </div>
                                     </div>
                                     <div class="widget_ab_item m-top-30">
                                         <div class="item_icon"><i class="fa fa-envelope-o"></i></div>
                                         <div class="widget_ab_item_text">
                                             <h6 class="text-white">Email Address :</h6>
-                                            <p>youremail@mail.com</p>
+                                            <p>info@jsb-technology.com</p>
                                         </div>
                                     </div>
                                 </div><!-- End off widget item -->
                             </div><!-- End off col-md-3 -->
 
-                            <div class="col-md-3">
+                            <div class="col-md-9">
                                 <div class="widget_item widget_latest sm-m-top-50">
-                                    <h5 class="text-white">Latest News</h5>
-                                    <div class="widget_latst_item m-top-30">
-                                        <div class="item_icon"><img src="assets/images/ltst-img-1.jpg" alt="" /></div>
-                                        <div class="widget_latst_item_text">
-                                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                            <a href="">21<sup>th</sup> July 2016</a>
-                                        </div>
-                                    </div>
-                                    <div class="widget_latst_item m-top-30">
-                                        <div class="item_icon"><img src="assets/images/ltst-img-2.jpg" alt="" /></div>
-                                        <div class="widget_latst_item_text">
-                                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                            <a href="">21<sup>th</sup> July 2016</a>
-                                        </div>
-                                    </div>
-                                    <div class="widget_latst_item m-top-30">
-                                        <div class="item_icon"><img src="assets/images/ltst-img-3.jpg" alt="" /></div>
-                                        <div class="widget_latst_item_text">
-                                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                            <a href="">21<sup>th</sup> July 2016</a>
-                                        </div>
-                                    </div>
+                                    <h5 class="text-white">Email Us</h5>
+                                    <form class="form-signin" method="post" id="login-form">
+                                            <div id="errorDiv">
+                                                <!-- error will be shown here ! -->
+                                            </div>
+                                            <div class="form-group has-feedback">
+                                                <label for="name">Your Name</label>
+                                                <input type="text" class="form-control" placeholder="Your Name" required name="name" id="name">
+                                                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                                <span class="help-block" id="error"></span>
+                                            </div>
+                                            <div class="form-group has-feedback">
+                                                <label for="email">Your Email</label>
+                                                <input type="email" class="form-control" placeholder="Your Email" name="email" id="email">
+                                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                                <span class="help-block" id="error"></span>
+                                            </div>
+                                            <div class="form-group has-feedback">
+                                                <label for="message">Your Message</label>
+                                                <textarea name="message" class="form-control" placeholder="Your Message">
+
+                                                </textarea>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <!-- /.col -->
+                                                <div class="col-xs-6" style="float:right" id="btn-login-div">
+                                                    <button type="submit" class="btn btn-primary btn-block btn-flat" name="btn-send" id="btn-send" >
+                                                        Send Email <i class="fa fa-envelope"></i>
+                                                    </button>
+                                                </div>
+                                                <!-- /.col -->
+                                            </div>
+                                        </form>
+                                    
                                 </div><!-- End off widget item -->
                             </div><!-- End off col-md-3 -->
 
-                            <div class="col-md-3">
-                                <div class="widget_item widget_service sm-m-top-50">
-                                    <h5 class="text-white">Latest News</h5>
-                                    <ul class="m-top-20">
-                                        <li class="m-top-20"><a href=""><i class="fa fa-angle-right"></i> Web Design</a></li>
-                                        <li class="m-top-20"><a href=""><i class="fa fa-angle-right"></i> User Interface Design</a></li>
-                                        <li class="m-top-20"><a href=""><i class="fa fa-angle-right"></i> E- Commerce</a></li>
-                                        <li class="m-top-20"><a href=""><i class="fa fa-angle-right"></i> Web Hosting</a></li>
-                                        <li class="m-top-20"><a href=""><i class="fa fa-angle-right"></i> Themes</a></li>
-                                        <li class="m-top-20"><a href=""><i class="fa fa-angle-right"></i> Support Forums</a></li>
-                                    </ul>
-                                </div><!-- End off widget item -->
-                            </div><!-- End off col-md-3 -->
-
-                            <div class="col-md-3">
-                                <div class="widget_item widget_newsletter sm-m-top-50">
-                                    <h5 class="text-white">Newsletter</h5>
-                                    <form class="form-inline m-top-30">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" placeholder="Enter you Email">
-                                            <button type="submit" class="btn text-center"><i class="fa fa-arrow-right"></i></button>
-                                        </div>
-
-                                    </form>
-                                    <div class="widget_brand m-top-40">
-                                        <a href="" class="text-uppercase">Your Logo</a>
-                                        <p>Lorem ipsum dolor sit amet consec tetur 
-                                            adipiscing elit nulla aliquet pretium nisi in</p>
-                                    </div>
-                                    <ul class="list-inline m-top-20">
-                                        <li>-  <a href=""><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a href=""><i class="fa fa-behance"></i></a></li>
-                                        <li><a href=""><i class="fa fa-dribbble"></i></a>  - </li>
-                                    </ul>
-
-                                </div><!-- End off widget item -->
-                            </div><!-- End off col-md-3 -->
+                            
                         </div>
                     </div>
                 </div>
                 <div class="main_footer fix bg-mega text-center p-top-40 p-bottom-30 m-top-80">
                     <div class="col-md-12">
-                        <p class="wow fadeInRight" data-wow-duration="1s">
-                            Made with 
-                            <i class="fa fa-heart"></i>
-                            by 
-                            <a target="_blank" href="https://bootstrapthemes.co">Bootstrap Themes</a> 
-                            2016. All Rights Reserved
-                        </p>
+                        
                     </div>
                 </div>
             </footer>
